@@ -15,6 +15,7 @@ pub enum Error {
 
 impl Alphabet {
     // Standard alphabets. Characters are sorted by their ASCII values.
+    pub const BASE_1: &'static str = "0";
     pub const BASE_2: &'static str = "01";
     pub const BASE_10: &'static str = "0123456789";
     pub const BASE_16: &'static str = "0123456789ABCDEF";
@@ -101,6 +102,34 @@ mod test {
     async fn test_abcdef() {
         assert_eq!(Alphabet::from("abcdef").unwrap().generate(4, 5), vec!["e", "f", "aa", "ab", "ac"]);
     }
+
+    #[tokio::test]
+    async fn test_binary() {
+        let bin = Alphabet::from(Alphabet::BASE_2).unwrap();
+        assert_eq!(bin.generate(0, 1), vec!["0"]);
+        assert_eq!(bin.generate(1, 1), vec!["1"]);
+        assert_eq!(bin.generate(2, 1), vec!["00"]);
+        assert_eq!(bin.generate(3, 1), vec!["01"]);
+        assert_eq!(bin.generate(4, 1), vec!["10"]);
+        assert_eq!(bin.generate(5, 1), vec!["11"]);
+    }
+
+    #[tokio::test]
+    async fn test_unary() {
+        let bin = Alphabet::from(Alphabet::BASE_1).unwrap();
+        assert_eq!(bin.generate(0, 1), vec!["0"]);
+        assert_eq!(bin.generate(0, 3), vec!["0", "00", "000"]);
+        assert_eq!(bin.generate(3, 3), vec!["0000", "00000", "000000"]);
+    }
+
+    #[tokio::test]
+    async fn test_hex() {
+        let hex = Alphabet::from(Alphabet::HEX).unwrap();
+        assert_eq!(hex.generate(4, 1), vec!["4"]);
+        assert_eq!(hex.generate(16, 1), vec!["00"]);
+        assert_eq!(hex.generate(20, 1), vec!["04"]);
+    }
+
 
     #[tokio::test]
     async fn test_numbers() {
