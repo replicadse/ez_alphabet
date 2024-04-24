@@ -20,10 +20,11 @@ impl Alphabet {
     pub const BASE_16: &'static str = "0123456789ABCDEF";
     pub const BASE_62: &'static str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     pub const BASE_64: &'static str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
-    pub const LOWERCASE: &'static str = "abcdefghijklmnopqrstuvwxyz";
-    pub const UPPERCASE: &'static str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    pub const LETTERS: &'static str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     pub const NUMBERS: &'static str = Self::BASE_10;
+    pub const HEX: &'static str = Self::BASE_16;
+    pub const LETTERS_LOWERCASE: &'static str = "abcdefghijklmnopqrstuvwxyz";
+    pub const LETTERS_UPPERCASE: &'static str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    pub const LETTERS: &'static str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     pub const URL_UNRESERVED_RFC3986: &'static str = "-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~";
     pub const ASCII: &'static str = r##" !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"##;
 
