@@ -16,7 +16,7 @@ default = []
 serde = ["dep:serde"]
 
 [dependencies]
-serde = { version = "1.0.175", features = ["derive"], optional = true }
+serde = { version = "1.0.203", features = ["derive"], optional = true }
 
 [dev-dependencies]
 tokio = { version = "1.36.0", features = ["rt", "rt-multi-thread", "macros"] }
